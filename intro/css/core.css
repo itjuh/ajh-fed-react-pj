@@ -1,0 +1,154 @@
+@charset "utf-8";
+
+/* 레오폴드 PJ : 공통요소 CSS - core.css */
+
+/* 공통레이아웃 클래스*/
+
+/* 웹폰트 */
+@font-face {
+    font-family: "KOFIHDrLEEJWTTF-B";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/KOFIHDrLEEJWTTF-B.woff2")
+      format("woff2");
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "KOFIHDrLEEJWTTF-L";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/KOFIHDrLEEJWTTF-L.woff2")
+      format("woff2");
+    font-weight: 300;
+    font-style: normal;
+  }
+/* 공사중표시 */
+body *{
+    /* outline: 1px dashed rgba(255, 127, 80, 0.171); */
+    /* background: #eee;   */
+}
+body{
+    height: 100vh;
+}
+/* 속박스 */
+.in-box {
+    max-width: 1280px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+/* 플렉스 박스 클래스 */
+.flex-box{
+    display: flex;
+    flex-wrap: wrap;
+}
+/* 구분박스 */
+.part-box{
+    height: 100%;
+}
+/* IR 숨기기 class */
+.ir{
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+/* 화면출력 숨기기 클래스 */
+.blind{
+    display: none;
+}
+
+/* 16 그리드 클래스 : 한줄의 합이 16컬럼이 되도록 셋팅! */
+.col-1 {
+    width: 6.25%;
+}
+.col-2 {
+    width: 12.5%;
+}
+.col-3 {
+    width: 18.75%;
+}
+.col-4 {
+    width: 25%;
+}
+.col-5 {
+    width: 31.25%;
+}
+.col-6 {
+    width: 37.5%;
+}
+.col-7 {
+    width: 43.75%;
+}
+.col-8 {
+    width: 50%;
+}
+.col-9 {
+    width: 56.25%;
+}
+.col-10 {
+    width: 62.5%;
+}
+.col-11 {
+    width: 68.75%;
+}
+.col-12 {
+    width: 75%;
+}
+.col-13 {
+    width: 81.25%;
+}
+.col-14 {
+    width: 87.5%;
+}
+.col-15 {
+    width: 93.75%;
+}
+.col-16 {
+    width: 100%;
+}
+/* 16 그리드 클래스 : 페이지 가로가 16줄이 되도록 셋팅! */
+.row-1 {
+    height: 6.25vh;
+}
+.row-2 {
+    height: 12.5vh;
+}
+.row-3 {
+    height: 18.75vh;
+}
+.row-4 {
+    height: 25vh;
+}
+.row-5 {
+    height: 31.25vh;
+}
+.row-6 {
+    height: 37.5vh;
+}
+.row-7 {
+    height: 43.75vh;
+}
+.row-8 {
+    height: 50vh;
+}
+.row-9 {
+    height: 56.25vh;
+}
+.row-10 {
+    height: 62.5vh;
+}
+.row-11 {
+    height: 68.75vh;
+}
+.row-12 {
+    height: 75vh;
+}
+.row-13 {
+    height: 81.25vh;
+}
+.row-14 {
+    height: 87.5vh;
+}
+.row-15 {
+    height: 93.75vh;
+}
+.row-16 {
+    height: 100vh;
+}

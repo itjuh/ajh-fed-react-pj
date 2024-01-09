@@ -1,0 +1,363 @@
+@charset "utf-8";
+/* 레오폴드 인트로페이지 css - intro.css */
+
+/* 웹폰트 */
+@font-face {
+  font-family: "KOFIHDrLEEJWTTF-B";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/KOFIHDrLEEJWTTF-B.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "KOFIHDrLEEJWTTF-L";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/KOFIHDrLEEJWTTF-L.woff2")
+    format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "LOGO-POLD";
+  src: url("../logopold.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+/* 키보드 구역 */
+.prod-area {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  /* aspect-ratio: 1920/1080; */
+  transition: 0.5s ease-in-out;
+  /* overflow: hidden; */
+}
+/* 키보드 개별 박스 공통 */
+.prod-box {
+  position: absolute;
+  transform-origin: 50vw 50vh;
+}
+/* 안쪽박스 */
+.inner-box {
+  /* 애니메이션 */
+  animation: rotate-right-ani 150s linear infinite;
+}
+/* 바깥박스 */
+.outer-box {
+  /* 애니메이션 */
+  animation: rotate-left-ani 200s linear infinite;
+}
+/* 각 제품 */
+.prod-item {
+  position: absolute;
+  width: 200px;
+  aspect-ratio: 200/65;
+  /* overflow: hidden; */
+  /* 트랜지션 */
+  transition: 0.5s ease-out;
+}
+/* 제품 이미지 */
+.prod-item img {
+  width: 100%;
+  object-fit: cover;
+  /* 트랜지션 */
+  transition: 0.3s ease-in-out;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+/* .prod-item:hover {
+  transform: scale(1.2);
+} */
+/* prod-item 회전 */
+@keyframes rotate-right-ani {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* prod-item 회전 */
+@keyframes rotate-left-ani {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* 임시 */
+html{
+  font-size: 40px;
+}
+/* 메세지 구역 */
+.message-area{
+  position: fixed;
+  top: 10%;
+  width: 100%;
+  /* height: 10vh; */
+}
+/* 메세지 글자 박스 */
+.message-box{
+  display: flex;
+  /* outline: 1px solid green; */
+  font-family: "LOGO-POLD";
+  margin-top: 20vh;
+  height: 11vh;
+  justify-content: center;
+  align-items: center;
+  /* gap: 1vw; */
+  cursor: text;
+}
+/* 글자 span */
+.message-box span{
+  /* outline: 1px solid red; */
+  /* font-size: 2rem; */
+  user-select: none;
+}
+/* 텍스트 커서 */
+.text-cursor{
+  height: 1.5rem;
+  width: .05rem;
+  background-color: #777;
+
+  /* 애니메이션 */
+  animation: txt-cursor-ani 1s infinite steps(2);
+}
+/* 텍스트 커서 애니 */
+@keyframes txt-cursor-ani {
+  from{
+    opacity: 0;
+  }
+}
+/* 변수설정 */
+:root {
+  /* 가로크기 */
+  --key-width: 56px;
+  /* 가로 size0 : tap,\*/
+  --key-width0: 116px;
+  /* 가로 size1 : tap,\*/
+  --key-width1: 86px;
+  /* 가로 size2 : caps */
+  --key-width2: 100px;
+  /* 가로 size3 : L-shift,enter */
+  --key-width3: 128px;
+  /* 가로 size4 : R-shift */
+  --key-width4: 156px;
+  /* 가로 size5 : fn */
+  --key-width5: 70px;
+  /* 가로 size6 : space */
+  --key-width6: 354px;
+  /* 세로크기 */
+  --key-height: 56px;
+  /* 키상단 갭 */
+  --key-top-gap: 7.25px;
+  /* 두께 */
+  --key-side: 37px;
+  /* 회전각도 */
+  --rotate-deg: 90deg;
+}
+.wrap {
+  /* 1. 화면고정필수(fixed) */
+  position: fixed;
+  top: 35%;
+  /* 2. 화면과 같은 너비 크기설정 */
+  width: 100%;
+  height: 50vh;
+
+  transform: scale(0.8);
+}
+/* 겉박스 */
+.key-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+  width: calc(var(--key-width) * 15 + 10px);
+  height: auto;
+  top: 85%;
+  left: 50%;
+  /* 3D 입체설정 */
+  transform-style: preserve-3d;
+  /* 입체를 잘 보이게 약간 회전 */
+  transform: translate(-50%, -100%) rotateX(30deg) rotateY(0deg) rotateZ(0deg);
+  /* 트랜지션 */
+  transition: all .5s ease-in;
+}
+/* 단일키 */
+.key {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: var(--key-width);
+  height: var(--key-height);
+
+  /* 3D 입체설정 */
+  transform-style: preserve-3d;
+  /* 트랜지션 */
+  transition: 0.1s ease-in-out;
+}
+/* 공백키 */
+.key.blank {
+  position: relative;
+  top: calc(50% - var(--key-height) / 2);
+  left: calc(50% - var(--key-width) / 2);
+  width: calc(var(--key-width) / 2);
+  height: var(--key-height);
+}
+/* 개별키 */
+/* 사이즈1 */
+.key.size0 {
+  width: var(--key-width0);
+}
+.key.size1 {
+  width: var(--key-width1);
+}
+.key.size2 {
+  width: var(--key-width2);
+}
+.key.size3 {
+  width: var(--key-width3);
+}
+.key.size4 {
+  width: var(--key-width4);
+}
+.key.size5 {
+  width: var(--key-width5);
+}
+.key.size6 {
+  width: var(--key-width6);
+}
+
+/* 키 단면 공통 */
+.key span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+/* 앞면 */
+.key span:nth-child(1) {
+  background-color: #ccc;
+  opacity: 0.9;
+  width: calc(100% - var(--key-top-gap) * 2);
+  height: calc(var(--key-height) - var(--key-top-gap) * 2);
+  top: var(--key-top-gap);
+  left: var(--key-top-gap);
+  /* left: calc((var(--key-height) - var(--key-height) * 0.735) / 2); */
+  border-radius: 1px;
+
+  /* z축 밀기 */
+  transform: translateZ(35.6px);
+}
+/* 오른쪽면 */
+.key span:nth-child(2) {
+  background-color: #ccc;
+  opacity: 0.5;
+  width: var(--key-side);
+  right: calc(var(--key-side) / 2 * -1);
+  /* y축 회전 */
+  transform-origin: top;
+  transform: rotateY(78.3deg) translateX(-18.4px);
+  clip-path: polygon(100% 0%, 100% 100%, 0% calc(100% - var(--key-top-gap)), 0% var(--key-top-gap));
+}
+/* 왼쪽면 */
+.key span:nth-child(3) {
+  background-color: #ccc;
+  opacity: 0.5;
+  width: var(--key-side);
+  left: calc(var(--key-side) / 2 * -1);
+  clip-path: polygon(100% var(--key-top-gap), 100% calc(100% - var(--key-top-gap)), 0% 100%, 0% 0%);
+
+  /* y축 회전 */
+  transform: rotateY(-78.3deg) translateX(18.4px);
+  /* display: none; */
+}
+/* 윗면 */
+.key span:nth-child(4) {
+  background-color: #ccc;
+  opacity: 0.5;
+  height: var(--key-side);
+  top: calc(var(--key-side) / 2 * -1);
+  clip-path: polygon(100% 0%, calc(100% - var(--key-top-gap)) 100%, var(--key-top-gap) 100%, 0% 0%);
+
+  /* y축 회전 */
+  transform: rotateX(78.3deg) translateY(18.4px);
+  /* display: none; */
+}
+/* 아랫면 */
+.key span:nth-child(5) {
+  background-color: #ccc;
+  opacity: 0.5;
+  height: var(--key-side);
+  bottom: calc(var(--key-side) / 2 * -1);
+  clip-path: polygon(calc(100% - var(--key-top-gap)) 0%, 100% 100%, 0% 100%, var(--key-top-gap) 0%);
+  /* y축 회전 */
+  transform: rotateX(-78.3deg) translateY(-18.4px);
+}
+/* 뒷면 */
+.key span:nth-child(6) {
+  background-color: #333;
+  opacity: 0.5;
+  border-radius: 3px;
+}
+/* 개별키 상단 */
+.key-top {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 0.5px solid #aaa;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-radius: 3px;
+  display: flex;
+  flex-wrap: wrap;
+  cursor: pointer;
+  /* 드래그 방지 */
+  user-select: none;
+}
+/* 키 마우스오버 */
+/* .key-top:hover {
+  background-color: #888;
+} */
+/* 개별키 상단 문자열칸 공통 */
+.key-top aside {
+  width: 100%;
+  height: 50%;
+  /* 기본 문자열 두줄 */
+  /* outline: 1px solid red; */
+  padding-left: 4%;
+  box-sizing: border-box;
+  font-size: 0.4rem;
+  font-family: "KOFIHDrLEEJWTTF-L";
+}
+/* 문자열 한줄 */
+aside.part1 {
+  height: 100%;
+}
+/* 따라다니는 원 */
+.mover{
+  position: absolute;
+  /* 초기에 안보임 */
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  outline: 1px solid #aaa;
+  background-color: #ffffff80;
+  cursor: pointer;
+  user-select: none;
+  /* 글자설정 */
+  color: #aaa;
+  text-align: center;
+  line-height: 200px;
+  font-family: "KOFIHDrLEEJWTTF-L";
+  font-size: .7rem;
+  /* 트랜지션 */
+  transition: left .02s ease-out, top .02s ease-out;
+  transform: scale(1);
+  animation: mover-ani .5s linear infinite alternate;
+}
+@keyframes mover-ani {
+  to{
+    transform: scale(.95);
+  }
+}

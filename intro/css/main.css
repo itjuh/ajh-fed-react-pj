@@ -1,0 +1,351 @@
+@charset "utf-8";
+
+/* 레오폴드 PJ : 메인 CSS - main.css */
+/* 리셋, 공통, 코어 외부 CSS합치기(merging) */
+@import url(./reset.css);
+@import url(./core.css);
+@import url(./common.css);
+
+
+/************** 2. 메인영역  ****************/
+/* 2-1. 제품 정렬옵션 */
+.progress-area {
+  position: relative;
+  /* progress-bar부모자격 */
+  top: 70%;
+  margin: 0 auto;
+}
+/* 정렬옵션 전체 */
+.progress-area ul {
+  gap: 8px;
+}
+/* 옵션 개별 */
+/* 프로그래스 가이드라인 */
+.progress-area li {
+  position: relative;
+  /* 가상요소 부모자격 */
+  height: 4px;
+  background-color: #eee;
+  border-radius: 10px;
+  flex: 1;
+  cursor: pointer;
+}
+/* 옵션 타이틀 */
+.progress-area li h2 {
+  position: relative;
+  /* 위치이동을 위한 포지션 */
+  top: -24px;
+  color: #ccc;
+  text-align: center;
+}
+/* 프로그래스 가이드라인 끝 원*/
+.progress-area li::after {
+  content: "";
+  position: absolute;
+  right: -8px;
+  top: -2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  outline: 2px solid #eee;
+}
+/* 프로그래스 닿았을 때 */
+.progress-area li.on h2 {
+  color: rgb(70, 70, 70);
+}
+.progress-area li.on::after {
+  content: "";
+  position: absolute;
+  right: -8px;
+  top: -2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: lightseagreen;
+  z-index: 2;
+}
+/* 프로그레스바 */
+.progress-bar {
+  position: absolute;
+  top: 0;
+  height: 4px;
+  background-color: lightseagreen;
+  border-radius: 10px;
+  width: calc(33.3% - 8px);
+  transition: width 0.8s ease-out;
+}
+/* 옵션 클릭 시 세부옵션 */
+.progress-sub-area {
+  position: relative;
+  /* 위치이동 */
+  top: 20%;
+  margin: 0 auto;
+}
+/* 체크박스 공통 */
+input[type="checkbox"] {
+  appearance: none;
+  display: none;
+}
+/* 체크박스 선택사항 선택확인용 */
+input[type="checkbox"]:checked + label::after {
+  content: "\f00c";
+  display: inline-block;
+  position: relative;
+  transform: translate(3px, -4px);
+  /* top: -4px; */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  width: 0px;
+  height: 10px;
+}
+/* 세부1 배열옵션 */
+.check-array {
+  flex: 1;
+  font-family: "KOFIHDrLEEJWTTF-L";
+  font-size: 1.2rem;
+  text-align: center;
+  outline: 1px solid lightseagreen;
+  padding: 3px 0;
+  border-radius: 2px;
+  user-select: none;
+  /* 처음에 안보임 */
+  display: none;
+}
+input[type="checkbox"]:checked + .check-array {
+  outline: 1px solid #fff;
+  background-color: lightseagreen;
+  color: #fff;
+}
+/* 세부2 색깔 옵션 */
+.color-area {
+  justify-content: center;
+  gap: 20px;
+  /* 처음에 안보임 */
+  display: none;
+}
+.check-color {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-grow: 0;
+}
+/* 세부 색상 */
+.color-wt {
+  border: 2px solid #ccc;
+}
+.color-bk {
+  border: 2px solid #131313;
+}
+.color-gy {
+  border: 2px solid #858585;
+}
+.color-bu {
+  border: 2px solid cornflowerblue;
+}
+.color-ye {
+  border: 2px solid #ffe65a;
+}
+.color-rd {
+  border: 2px solid orangered;
+}
+/* 체크박스 체크 시 */
+input[type="checkbox"]:checked + .color-wt {
+  outline: 1px solid #ccc;
+  background-color: #eeeeee;
+}
+input[type="checkbox"]:checked + .color-bk {
+  outline: 1px solid #858585;
+  background-color: #131313;
+  color:#fff;
+}
+input[type="checkbox"]:checked + .color-gy {
+  outline: 1px solid #ccc;
+  background-color: #858585;
+}
+input[type="checkbox"]:checked + .color-bu {
+  outline: 1px solid #1e6f9c;
+  background-color: cornflowerblue;
+}
+input[type="checkbox"]:checked + .color-ye {
+  outline: 1px solid #d3aa24;
+  background-color: #ffe65a;
+}
+input[type="checkbox"]:checked + .color-rd {
+  outline: 1px solid coral;
+  background-color: orangered;
+}
+/* 세부3 스위치 옵션 */
+.option-switch-area{
+  justify-content: space-between;
+  top: 8%;
+  /* 처음에 안보임 */
+  display: none;
+}
+.check-switch{
+  height: 5vh;
+  aspect-ratio: 1/1;
+  outline: 1px solid #ccc;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 200% 200%;
+}
+/* 스위치 개별 이미지 */
+.switch-br {
+  background-image: url(../images/switch_prod/png/click_brown.png);
+}
+.switch-bu {
+  background-image: url(../images/switch_prod/png/click_blue.png);
+}
+.switch-sl {
+  background-image: url(../images/switch_prod/png/silent_silver.png);
+}
+.switch-sr {
+  background-image: url(../images/switch_prod/png/silent_red.png);
+}
+.switch-lr {
+  background-image: url(../images/switch_prod/png/linear_red.png);
+}
+.switch-bk {
+  background-image: url(../images/switch_prod/png/linear_black.png);
+}
+.switch-cl {
+  background-image: url(../images/switch_prod/png/nonclick_clear.png);
+}
+/* 각 제품 구역 */
+.prod-area ol {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  outline: 1px solid #eee;
+  box-shadow: 0px 0px 3px rgb(0, 0, 0, 0.15);
+}
+.prod-area li {
+  position: absolute;
+  filter: grayscale(15%);
+  cursor: pointer;
+}
+.prod-item {
+  width: 300px;
+  aspect-ratio: 400/130;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url(./images/image_prod2/keyboard2.png);
+}
+/* 각 제품 li 오버시 */
+.prod-area li:hover {
+  filter: drop-shadow(0px 0px 3px rgb(0, 0, 0, 0.15)) grayscale(0);
+}
+.prod-area li:hover h3.prod-item-title {
+  color: #000;
+}
+/* 제품 개별 */
+/* 메인 검색 상품1 */
+.prod-area li:nth-child(1) {
+  top: 38%;
+  left: 20%;
+  z-index: 1;
+}
+/* 메인 검색 상품2 */
+.prod-area li:nth-child(2) {
+  top: 38%;
+  left: 55%;
+  z-index: 1;
+}
+/* 메인 제외 상품 3번째부터 */
+.prod-area li:nth-child(2) ~ li .prod-item {
+  width: 220px;
+}
+.prod-area li:nth-child(3) {
+  top: 5%;
+  left: 10%;
+}
+.prod-area li:nth-child(4) {
+  top: 5%;
+  left: 40%;
+}
+.prod-area li:nth-child(5) {
+  top: 5%;
+  left: 70%;
+}
+.prod-area li:nth-child(6) {
+  top: 40%;
+  left: -5%;
+}
+.prod-area li:nth-child(7) {
+  top: 40%;
+  left: 85%;
+}
+.prod-area li:nth-child(8) {
+  top: 75%;
+  left: 10%;
+}
+.prod-area li:nth-child(9) {
+  top: 75%;
+  left: 40%;
+}
+.prod-area li:nth-child(10) {
+  top: 75%;
+  left: 70%;
+}
+/* 제품 이름 */
+h3.prod-item-title {
+  position: relative;
+  left: 1px;
+  padding: 3px 0;
+  color: #777;
+  font-family: "KOFIHDrLEEJWTTF-L";
+  font-size: 1rem;
+  text-indent: 5px;
+}
+h3.prod-item-title + h3.prod-item-title {
+  text-indent: 15px;
+  font-size: 0.8rem;
+}
+/* 위시리스트 버튼 */
+/* .add-wish {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  font-family: "KOFIHDrLEEJWTTF-L";
+  font-size: 0.7rem;
+  border-radius: 5px;
+  padding: 2px;
+  outline: 1px solid #ccc;
+  /* background-color: #e0e0e0; */
+  box-shadow: 0px 0px 3px rgb(0, 0, 0, 0.15);
+  text-indent: 2px;
+} */
+/* 위시리스트 버튼 오버시 */
+/* .add-wish:hover {
+  background-color: #ccc;
+} */
+/* 위시리스트 버튼 오버 시 더보기 비활성화*/
+.add-wish:hover .prod-detail-view {
+  transform: rotateX(90deg);
+}
+
+/* 더보기 버튼 */
+.prod-detail-view {
+  position: absolute;
+  top: calc(33.3% - 15px);
+  left: calc(50% - 20px);
+  border-radius: 10px;
+  width: 40px;
+  height: 30px;
+  background-color: #0000003f;
+  outline: 1px solid #ffffffa1;
+  font-family: "KOFIHDrLEEJWTTF-L";
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+  line-height: 32px;
+  transform: rotateX(90deg);
+  user-select: none;
+}
+/* 제품 오버 시 더보기버튼 활성화 */
+.prod-item:hover .prod-detail-view {
+  transform: rotateX(0deg);
+  transition: 0.2s ease-in;
+}

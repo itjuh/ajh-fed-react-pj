@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>레오폴드</title>
+    <!-- 파비콘 -->
+    <link rel="shortcut icon" href="./images/short_icon.png" />
+    <!-- CSS연결 -->
+    <link rel="stylesheet" href="./css/intro.css" />
+    <!-- 제이쿼리 라이브러리 -->
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/jquery-ui.min.js"></script>
+    <!-- 키보드 데이터 js -->
+    <script src="./js/data.js" type="module"></script>
+    <!-- 키보드 원형회전 js -->
+    <script type="module" src="./js/key_box_rotate.js"></script>
+    <!-- 키보드 자판배치 js -->
+    <script type="module" src="./js/keyboard.js"></script>
+    <!-- 키보드 타이핑효과 js -->
+    <script type="module" src="./js/typing.js"></script>
+  </head>
+  <body>
+    <!-- 키보드 제품 구역 -->
+    <div class="prod-area">
+      <section class="prod-box inner-box"></section>
+      <section class="prod-box outer-box"></section>
+    </div>
+    <!-- 메세지 구역 -->
+    <div class="message-area">
+      <section class="message-box">
+        <span>LEOPOLD</span>
+        <div class="text-cursor"></div>
+      </section>
+    </div>
+    <!-- 키보드 구역 -->
+    <div class="wrap">
+      <div class="key-box"></div>
+    </div>
+    <div class="mover"></div>
+  </body>
+</html>

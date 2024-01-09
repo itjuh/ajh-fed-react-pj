@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/ajh-fed-react-pj/static/css/main.d4d20144.css",
+    "main.js": "/ajh-fed-react-pj/static/js/main.c023b389.js",
+    "static/media/01.png": "/ajh-fed-react-pj/static/media/01.8028f3cc1fe7ad115ee7.png",
+    "index.html": "/ajh-fed-react-pj/index.html",
+    "main.d4d20144.css.map": "/ajh-fed-react-pj/static/css/main.d4d20144.css.map",
+    "main.c023b389.js.map": "/ajh-fed-react-pj/static/js/main.c023b389.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d4d20144.css",
+    "static/js/main.c023b389.js"
+  ]
+}
