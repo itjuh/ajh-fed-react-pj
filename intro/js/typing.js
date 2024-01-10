@@ -74,44 +74,67 @@ dFn.addEvt(window, "DOMContentLoaded", () => {
         "linear",
         () => {
           // 마우스 무브 이벤트 작동
-          $(window).on("mousemove", function (e) {
-            let pos = [];
-            pos[0] = Math.floor(e.pageX) - 100;
-            pos[1] = Math.floor(e.pageY) - 100;
-            mover.css({
-              left: pos[0] + "px",
-              top: pos[1] + "px",
-            }).text('Enter');
-          })
-          // 이벤트 등록 후 클릭 시 페이지 전환
-          .click(function(e){
-            let pos = [];
-            pos[0] = Math.floor(e.pageX) - 2500;
-            pos[1] = Math.floor(e.pageY) - 2500;
-            console.log('클릭함');
-            // 클릭하면 하단 키보드 돌고 화면 전환
-            $('.key-box').css({
-              transform: 'translate(-50%, -100%) rotateX(90deg)'
+          $(window)
+            .on("mousemove", function (e) {
+              let pos = [];
+              pos[0] = Math.floor(e.pageX) - 100;
+              pos[1] = Math.floor(e.pageY) - 100;
+              mover
+                .css({
+                  left: pos[0] + "px",
+                  top: pos[1] + "px",
+                })
+                .text("Enter")
+                .delay(300)
+                .animate(
+                  {
+                    width: "5000px",
+                    height: "5000px",
+                    left: pos[0] + "px",
+                    top: pos[1] + "px",
+                    backgroundColor: "#fff",
+                  },
+                  1200,
+                  "easeOutQuart",
+                  () => {
+                    location.href = "https://itjuh.github.io/ajh-fed-react-pj/";
+                  }
+                );
+              $(".key-box").css({
+                transform: "translate(-50%, -100%) rotateX(90deg)",
+              });
             })
-            mover
-            // 원 안쪽 글자 비우고, 이전애니 없애고, 커지면서 화면전환
-            .text('')
-            .stop()
-            .animate(
-              {
-                width: '5000px',
-                height: '5000px',
-                left: pos[0] + "px",
-                top: pos[1] + "px",
-                backgroundColor: '#fff',
-              },
-              1200,
-              "easeOutQuart",
-              ()=>{
-                location.href = 'https://itjuh.github.io/ajh-fed-react-pj/';
-              }) ///////mover ani종료 //////////
-          }); ////////클릭이벤트
-        }/////콜백함수
+
+            // 이벤트 등록 후 클릭 시 페이지 전환
+            // .click(function (e) {
+            //   let pos = [];
+            //   pos[0] = Math.floor(e.pageX) - 2500;
+            //   pos[1] = Math.floor(e.pageY) - 2500;
+            //   console.log("클릭함");
+            //   // 클릭하면 하단 키보드 돌고 화면 전환
+            //   $(".key-box").css({
+            //     transform: "translate(-50%, -100%) rotateX(90deg)",
+            //   });
+            //   mover
+            //     // 원 안쪽 글자 비우고, 이전애니 없애고, 커지면서 화면전환
+            //     .text("")
+            //     .stop()
+            //     .animate(
+            //       {
+            //         width: "5000px",
+            //         height: "5000px",
+            //         left: pos[0] + "px",
+            //         top: pos[1] + "px",
+            //         backgroundColor: "#fff",
+            //       },
+            //       1200,
+            //       "easeOutQuart",
+            //       () => {
+            //         location.href = "https://itjuh.github.io/ajh-fed-react-pj/";
+            //       }
+            //     ); ///////mover ani종료 //////////
+            // }); ////////클릭이벤트
+        } /////콜백함수
       );
     }
   );
