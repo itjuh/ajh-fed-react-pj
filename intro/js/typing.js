@@ -90,8 +90,8 @@ dFn.addEvt(window, "DOMContentLoaded", () => {
                   {
                     width: "5000px",
                     height: "5000px",
-                    left: pos[0] + "px",
-                    top: pos[1] + "px",
+                    left: (pos[0] - 2500) + "px",
+                    top: (pos[1] - 2500) + "px",
                     backgroundColor: "#fff",
                   },
                   1200,
